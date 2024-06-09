@@ -18,7 +18,7 @@ public class LivroDAO {
     ArrayList<Livro> lista = new ArrayList<>();
 
     public void cadastrarLivro(Livro livro) throws ClassNotFoundException {
-        String sql = "INSERT INTO livros (livro_nome) VALUES (?)";
+        String sql = "INSERT INTO livros (livro_nome, autor_id, genero_id, editora_id) VALUES (?,?,?,?)";
         conn = new Conexao().getConexao();
         try {
             pstm = conn.prepareStatement(sql);
@@ -31,7 +31,7 @@ public class LivroDAO {
     }
 
     public ArrayList<Livro> listarLivros() {
-        String query = "SELECT id_livro, titulo_livro, id_autor, id_genero, id_editora FROM livros";
+        String query = "SELECT livro_id, livro_nome, autor_id, genero_id, editora_id FROM livros";
         ArrayList<Livro> listaLivros = new ArrayList<>();
 
         try (Connection connection = new Conexao().getConexao();
@@ -40,11 +40,11 @@ public class LivroDAO {
 
             while (resultSet.next()) {
                 Livro livro = new Livro();
-                livro.setLivro_id(resultSet.getInt("id_livro"));
-                livro.setLivro_nome(resultSet.getString("titulo_livro"));
-                livro.setAutor_id(resultSet.getInt("id_autor"));
-                livro.setGenero_id(resultSet.getInt("id_genero"));
-                livro.setEditora_id(resultSet.getInt("id_editora"));
+                livro.setLivro_id(resultSet.getInt("livro_id"));
+                livro.setLivro_nome(resultSet.getString("livro_nome"));
+                livro.setAutor_id(resultSet.getInt("autor_id"));
+                livro.setGenero_id(resultSet.getInt("genero_id"));
+                livro.setEditora_id(resultSet.getInt("editora_id"));
                 listaLivros.add(livro);                
             }
 
