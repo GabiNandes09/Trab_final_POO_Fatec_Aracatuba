@@ -1,6 +1,7 @@
 
 package trab_catalog_liv;
 
+import Database.Buscar;
 import ModelDAO.*;
 import Models.*;
 import java.util.ArrayList;
@@ -204,15 +205,21 @@ public class CadastroLivros extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarLivroActionPerformed
-        Livro livro = new Livro(txtNomeLivro.getText(), 1, 1, 1);
+       int autorID = Buscar.buscarAutor(autorDAO.listarAutor(), cbxAutor);
+       int editoraID = Buscar.buscarEditora(editoraDAO.listarEditora(), cbxEditora);
+       int generoID = Buscar.buscarGenero(generoDAO.listarGenero(), cbxGenero);
+        Livro livro = new Livro(txtNomeLivro.getText(), generoID, 
+                autorID, editoraID);
         LivroDAO livrosDAO = new LivroDAO();
         try {
             livrosDAO.cadastrarLivro(livro);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(CadastroLivros.class.getName()).log(Level.SEVERE, null, ex);
         }
+        btnCancelar.doClick();
     }//GEN-LAST:event_btnCadastrarLivroActionPerformed
 
+    
     private void btnApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApagarActionPerformed
         
     }//GEN-LAST:event_btnApagarActionPerformed

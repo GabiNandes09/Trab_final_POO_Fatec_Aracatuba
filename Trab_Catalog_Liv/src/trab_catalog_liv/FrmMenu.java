@@ -17,8 +17,7 @@ public class FrmMenu extends javax.swing.JFrame {
     
     public void loadData(ArrayList<Livro> livro){
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        model.setRowCount(0);
-        
+        model.setRowCount(0);        
         for (Livro x : livro){
             model.addRow(new Object[]{x.getLivro_id(), x.getLivro_nome(), x.getAutor_id(), x.getGenero_id(), x.getEditora_id()});
         }

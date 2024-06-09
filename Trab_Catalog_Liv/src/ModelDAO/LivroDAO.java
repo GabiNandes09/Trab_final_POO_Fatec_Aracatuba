@@ -23,6 +23,9 @@ public class LivroDAO {
         try {
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, livro.getLivro_nome());
+            pstm.setInt(2, livro.getAutor_id());
+            pstm.setInt(3, livro.getGenero_id());
+            pstm.setInt(4, livro.getEditora_id());
             pstm.execute();
             pstm.close();
         } catch (Exception e) {

@@ -104,6 +104,7 @@ public class CadastroEditora extends javax.swing.JFrame {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(CadastroAutor.class.getName()).log(Level.SEVERE, null, ex);
         }
+        btnCancelar.doClick();
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     public static void main(String args[]) {
