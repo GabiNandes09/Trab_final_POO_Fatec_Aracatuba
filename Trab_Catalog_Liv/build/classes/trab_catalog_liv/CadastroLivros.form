@@ -48,14 +48,12 @@
                           <Component id="cbxGenero" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="btnAddGenero" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnAddAutor" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="btnAddEditora" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btnAddEditora" pref="29" max="32767" attributes="0"/>
+                          <Component id="btnAddGenero" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnAddAutor" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="btnEditarGenero" alignment="0" max="32767" attributes="0"/>
                           <Component id="btnEditarEditora" alignment="0" max="32767" attributes="0"/>

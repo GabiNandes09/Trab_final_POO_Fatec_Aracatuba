@@ -71,10 +71,22 @@ public final class FrmMenu extends javax.swing.JFrame {
         tableEditora = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         tableGenero = new javax.swing.JTable();
-        btnCadLivros = new javax.swing.JButton();
-        btnCadLivros1 = new javax.swing.JButton();
-        btnCadLivros2 = new javax.swing.JButton();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
         btnCadLivros3 = new javax.swing.JButton();
+        btnCadLivros1 = new javax.swing.JButton();
+        btnCadLivros = new javax.swing.JButton();
+        btnCadLivros2 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        btnEditarGenero = new javax.swing.JButton();
+        btnEditarAutor = new javax.swing.JButton();
+        btnEditarLivros = new javax.swing.JButton();
+        btnEditarEditora = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        btnExcluirGenero = new javax.swing.JButton();
+        btnExcluirAutor = new javax.swing.JButton();
+        btnExcluirLivros = new javax.swing.JButton();
+        btnExcluirEditora = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -172,10 +184,10 @@ public final class FrmMenu extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("GÊNERO", jScrollPane4);
 
-        btnCadLivros.setText("CADASTRAR LIVROS");
-        btnCadLivros.addActionListener(new java.awt.event.ActionListener() {
+        btnCadLivros3.setText("CADASTRAR GÊNERO");
+        btnCadLivros3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadLivrosActionPerformed(evt);
+                btnCadLivros3ActionPerformed(evt);
             }
         });
 
@@ -186,6 +198,13 @@ public final class FrmMenu extends javax.swing.JFrame {
             }
         });
 
+        btnCadLivros.setText("CADASTRAR LIVROS");
+        btnCadLivros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadLivrosActionPerformed(evt);
+            }
+        });
+
         btnCadLivros2.setText("CADASTRAR EDITORA");
         btnCadLivros2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,45 +212,180 @@ public final class FrmMenu extends javax.swing.JFrame {
             }
         });
 
-        btnCadLivros3.setText("CADASTRAR GÊNERO");
-        btnCadLivros3.addActionListener(new java.awt.event.ActionListener() {
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnCadLivros2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCadLivros3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnCadLivros, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCadLivros1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCadLivros)
+                    .addComponent(btnCadLivros1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCadLivros2)
+                    .addComponent(btnCadLivros3))
+                .addContainerGap())
+        );
+
+        jTabbedPane2.addTab("CADASTROS", jPanel1);
+
+        btnEditarGenero.setText("EDITAR GÊNERO");
+        btnEditarGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadLivros3ActionPerformed(evt);
+                btnEditarGeneroActionPerformed(evt);
             }
         });
+
+        btnEditarAutor.setText("EDITAR AUTOR");
+        btnEditarAutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarAutorActionPerformed(evt);
+            }
+        });
+
+        btnEditarLivros.setText("EDITAR LIVROS");
+        btnEditarLivros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarLivrosActionPerformed(evt);
+            }
+        });
+
+        btnEditarEditora.setText("EDITAR EDITORA");
+        btnEditarEditora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarEditoraActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnEditarEditora, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEditarGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnEditarLivros, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEditarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEditarLivros)
+                    .addComponent(btnEditarAutor))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEditarEditora)
+                    .addComponent(btnEditarGenero))
+                .addContainerGap())
+        );
+
+        jTabbedPane2.addTab("EDITAR", jPanel2);
+
+        btnExcluirGenero.setText("EXCLUIR GÊNERO");
+        btnExcluirGenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirGeneroActionPerformed(evt);
+            }
+        });
+
+        btnExcluirAutor.setText("EXCLUIR AUTOR");
+        btnExcluirAutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirAutorActionPerformed(evt);
+            }
+        });
+
+        btnExcluirLivros.setText("EXCLUIR LIVROS");
+        btnExcluirLivros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirLivrosActionPerformed(evt);
+            }
+        });
+
+        btnExcluirEditora.setText("EXCLUIR EDITORA");
+        btnExcluirEditora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirEditoraActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnExcluirEditora, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnExcluirGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnExcluirLivros, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnExcluirAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnExcluirLivros)
+                    .addComponent(btnExcluirAutor))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnExcluirEditora)
+                    .addComponent(btnExcluirGenero))
+                .addContainerGap())
+        );
+
+        jTabbedPane2.addTab("EXCLUIR", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCadLivros2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCadLivros3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCadLivros, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCadLivros1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCadLivros)
-                    .addComponent(btnCadLivros1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCadLivros2)
-                    .addComponent(btnCadLivros3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
 
         pack();
@@ -266,6 +420,38 @@ public final class FrmMenu extends javax.swing.JFrame {
         x.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCadLivros3ActionPerformed
+
+    private void btnEditarGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarGeneroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarGeneroActionPerformed
+
+    private void btnEditarAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarAutorActionPerformed
+        
+    }//GEN-LAST:event_btnEditarAutorActionPerformed
+
+    private void btnEditarLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarLivrosActionPerformed
+       
+    }//GEN-LAST:event_btnEditarLivrosActionPerformed
+
+    private void btnEditarEditoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarEditoraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarEditoraActionPerformed
+
+    private void btnExcluirGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirGeneroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExcluirGeneroActionPerformed
+
+    private void btnExcluirAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirAutorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExcluirAutorActionPerformed
+
+    private void btnExcluirLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirLivrosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExcluirLivrosActionPerformed
+
+    private void btnExcluirEditoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirEditoraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExcluirEditoraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -310,11 +496,23 @@ public final class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnCadLivros1;
     private javax.swing.JButton btnCadLivros2;
     private javax.swing.JButton btnCadLivros3;
+    private javax.swing.JButton btnEditarAutor;
+    private javax.swing.JButton btnEditarEditora;
+    private javax.swing.JButton btnEditarGenero;
+    private javax.swing.JButton btnEditarLivros;
+    private javax.swing.JButton btnExcluirAutor;
+    private javax.swing.JButton btnExcluirEditora;
+    private javax.swing.JButton btnExcluirGenero;
+    private javax.swing.JButton btnExcluirLivros;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable tableAutor;
     private javax.swing.JTable tableEditora;
     private javax.swing.JTable tableGenero;
