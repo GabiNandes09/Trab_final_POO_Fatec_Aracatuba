@@ -5,17 +5,17 @@ import Models.Livro;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
-public class FrmMenu extends javax.swing.JFrame {
+public final class FrmMenu extends javax.swing.JFrame {
     
     LivroDAO livroDAO = new LivroDAO();
 
     public FrmMenu() {
         initComponents();
         setLocationRelativeTo(null);
-        loadData(livroDAO.listarLivros());
+        atualizarLista(livroDAO.listarLivros());
     }
     
-    public void loadData(ArrayList<Livro> livro){
+    public void atualizarLista(ArrayList<Livro> livro){
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);        
         for (Livro x : livro){
