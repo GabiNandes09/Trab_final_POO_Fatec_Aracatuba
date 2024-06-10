@@ -16,10 +16,11 @@ public final class FrmMenu extends javax.swing.JFrame {
     }
     
     public void atualizarLista(ArrayList<Livro> livro){
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel model = (DefaultTableModel) tableLivros.getModel();
         model.setRowCount(0);        
         for (Livro x : livro){
-            model.addRow(new Object[]{x.getLivro_id(), x.getLivro_nome(), x.getAutor_id(), x.getGenero_id(), x.getEditora_id()});
+            String [] resposta = livroDAO.pegarInfoLivros(x);
+            model.addRow(new Object[]{x.getLivro_id(), x.getLivro_nome(), resposta[0], resposta[2], resposta[1]});
         }
     }
 
@@ -27,14 +28,24 @@ public final class FrmMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableLivros = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableAutor = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tableEditora = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tableGenero = new javax.swing.JTable();
         btnCadLivros = new javax.swing.JButton();
+        btnCadLivros1 = new javax.swing.JButton();
+        btnCadLivros2 = new javax.swing.JButton();
+        btnCadLivros3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableLivros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -53,13 +64,105 @@ public final class FrmMenu extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jTable1.setRowHeight(30);
-        jScrollPane1.setViewportView(jTable1);
+        tableLivros.setRowHeight(30);
+        jScrollPane1.setViewportView(tableLivros);
 
-        btnCadLivros.setText("LIVROS");
+        jTabbedPane1.addTab("LIVROS", jScrollPane1);
+
+        tableAutor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID", "NOME", "QTD. LIVROS"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tableAutor);
+
+        jTabbedPane1.addTab("AUTORES", jScrollPane2);
+
+        tableEditora.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID", "NOME", "QTD. LIVROS"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tableEditora);
+
+        jTabbedPane1.addTab("EDITORAS", jScrollPane3);
+
+        tableGenero.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID", "NOME", "QTD. LIVROS"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(tableGenero);
+
+        jTabbedPane1.addTab("GÊNERO", jScrollPane4);
+
+        btnCadLivros.setText("CADASTRAR LIVROS");
         btnCadLivros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadLivrosActionPerformed(evt);
+            }
+        });
+
+        btnCadLivros1.setText("CADASTRAR AUTOR");
+        btnCadLivros1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadLivros1ActionPerformed(evt);
+            }
+        });
+
+        btnCadLivros2.setText("CADASTRAR EDITORA");
+        btnCadLivros2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadLivros2ActionPerformed(evt);
+            }
+        });
+
+        btnCadLivros3.setText("CADASTRAR GÊNERO");
+        btnCadLivros3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadLivros3ActionPerformed(evt);
             }
         });
 
@@ -67,22 +170,33 @@ public final class FrmMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCadLivros, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(429, 429, 429))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnCadLivros2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCadLivros3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnCadLivros, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCadLivros1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(btnCadLivros, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCadLivros)
+                    .addComponent(btnCadLivros1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCadLivros2)
+                    .addComponent(btnCadLivros3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -94,6 +208,18 @@ public final class FrmMenu extends javax.swing.JFrame {
         cadastroLivro.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCadLivrosActionPerformed
+
+    private void btnCadLivros1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadLivros1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadLivros1ActionPerformed
+
+    private void btnCadLivros2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadLivros2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadLivros2ActionPerformed
+
+    private void btnCadLivros3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadLivros3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadLivros3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,7 +261,17 @@ public final class FrmMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadLivros;
+    private javax.swing.JButton btnCadLivros1;
+    private javax.swing.JButton btnCadLivros2;
+    private javax.swing.JButton btnCadLivros3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable tableAutor;
+    private javax.swing.JTable tableEditora;
+    private javax.swing.JTable tableGenero;
+    private javax.swing.JTable tableLivros;
     // End of variables declaration//GEN-END:variables
 }
