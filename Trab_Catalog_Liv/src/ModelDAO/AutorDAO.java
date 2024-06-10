@@ -91,6 +91,25 @@ public class AutorDAO {
             e.printStackTrace();
         }
     }
+    public static int contarAutor(Autor autor){
+        String sql = "SELECT COUNT(*) AS total_livros " + 
+                "FROM livros " + "WHERE autor_id = " + autor.getAutor_id();
+        int qtd = 0;
+         try (Connection connection = new Conexao().getConexao();
+             Statement statement = connection.createStatement(); 
+             ResultSet resultSet = statement.executeQuery(sql)) {
+
+            while (resultSet.next()) {
+                qtd = resultSet.getInt("total_livros");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        
+        return qtd;
+    }
     
     
     

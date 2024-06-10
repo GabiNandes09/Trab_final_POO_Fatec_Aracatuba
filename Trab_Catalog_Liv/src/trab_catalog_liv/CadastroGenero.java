@@ -91,8 +91,8 @@ public class CadastroGenero extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        CadastroLivros x = new CadastroLivros();
-        x.setVisible(true);
+        FrmMenu menu = new FrmMenu();
+        menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 

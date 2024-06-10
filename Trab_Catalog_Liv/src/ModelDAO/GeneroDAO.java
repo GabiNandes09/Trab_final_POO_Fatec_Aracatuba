@@ -50,4 +50,23 @@ public class GeneroDAO {
 
         return listaGenero;
     }
+    public static int contarGenero(Genero genero){
+        String sql = "SELECT COUNT(*) AS total_livros " + 
+                "FROM livros " + "WHERE genero_id = " + genero.getGenero_id();
+        int qtd = 0;
+         try (Connection connection = new Conexao().getConexao();
+             Statement statement = connection.createStatement(); 
+             ResultSet resultSet = statement.executeQuery(sql)) {
+
+            while (resultSet.next()) {
+                qtd = resultSet.getInt("total_livros");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        
+        return qtd;
+    }
 }

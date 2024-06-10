@@ -1,25 +1,59 @@
 package trab_catalog_liv;
 
-import ModelDAO.LivroDAO;
-import Models.Livro;
-import java.util.ArrayList;
+import ModelDAO.*;
+import Models.*;
+import java.util.*;
 import javax.swing.table.DefaultTableModel;
 
 public final class FrmMenu extends javax.swing.JFrame {
-    
+
     LivroDAO livroDAO = new LivroDAO();
+    AutorDAO autorDAO = new AutorDAO();
+    EditoraDAO editoraDAO = new EditoraDAO();
+    GeneroDAO generoDAo = new GeneroDAO();
 
     public FrmMenu() {
         initComponents();
         setLocationRelativeTo(null);
-        atualizarLista(livroDAO.listarLivros());
+        atualizar();
     }
-    
-    public void atualizarLista(ArrayList<Livro> livro){
+
+    public void atualizar() {
+        atualizarListaLivros(livroDAO.listarLivros());
+        atualizarListaAutor(autorDAO.listarAutor());
+        atualizarListaEditora(editoraDAO.listarEditora());
+        atualizarListaGenero(generoDAo.listarGenero());
+    }
+
+    public void atualizarListaGenero(ArrayList<Genero> genero) {
+        DefaultTableModel model = (DefaultTableModel) tableGenero.getModel();
+        model.setRowCount(0);
+        for (Genero x : genero) {
+            model.addRow(new Object[]{x.getGenero_id(), x.getGenero_nome(), GeneroDAO.contarGenero(x)});
+        }
+    }
+
+    public void atualizarListaEditora(ArrayList<Editora> editora) {
+        DefaultTableModel model = (DefaultTableModel) tableEditora.getModel();
+        model.setRowCount(0);
+        for (Editora x : editora) {
+            model.addRow(new Object[]{x.getEditora_id(), x.getEditora_nome(), EditoraDAO.contarEditora(x)});
+        }
+    }
+
+    public void atualizarListaAutor(ArrayList<Autor> autor) {
+        DefaultTableModel model = (DefaultTableModel) tableAutor.getModel();
+        model.setRowCount(0);
+        for (Autor x : autor) {
+            model.addRow(new Object[]{x.getAutor_id(), x.getAutor_nome(), AutorDAO.contarAutor(x)});
+        }
+    }
+
+    public void atualizarListaLivros(ArrayList<Livro> livro) {
         DefaultTableModel model = (DefaultTableModel) tableLivros.getModel();
-        model.setRowCount(0);        
-        for (Livro x : livro){
-            String [] resposta = livroDAO.pegarInfoLivros(x);
+        model.setRowCount(0);
+        for (Livro x : livro) {
+            String[] resposta = livroDAO.pegarInfoLivros(x);
             model.addRow(new Object[]{x.getLivro_id(), x.getLivro_nome(), resposta[0], resposta[2], resposta[1]});
         }
     }
@@ -42,7 +76,7 @@ public final class FrmMenu extends javax.swing.JFrame {
         btnCadLivros2 = new javax.swing.JButton();
         btnCadLivros3 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         tableLivros.setModel(new javax.swing.table.DefaultTableModel(
@@ -206,19 +240,31 @@ public final class FrmMenu extends javax.swing.JFrame {
     private void btnCadLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadLivrosActionPerformed
         CadastroLivros cadastroLivro = new CadastroLivros();
         cadastroLivro.setVisible(true);
+        cadastroLivro.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosed(java.awt.event.WindowEvent windowEvent) {
+                atualizar();
+            }
+        });
         this.dispose();
     }//GEN-LAST:event_btnCadLivrosActionPerformed
 
     private void btnCadLivros1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadLivros1ActionPerformed
-        // TODO add your handling code here:
+        CadastroAutor x = new CadastroAutor();
+        x.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCadLivros1ActionPerformed
 
     private void btnCadLivros2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadLivros2ActionPerformed
-        // TODO add your handling code here:
+        CadastroEditora x = new CadastroEditora();
+        x.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCadLivros2ActionPerformed
 
     private void btnCadLivros3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadLivros3ActionPerformed
-        // TODO add your handling code here:
+        CadastroGenero x = new CadastroGenero();
+        x.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCadLivros3ActionPerformed
 
     /**

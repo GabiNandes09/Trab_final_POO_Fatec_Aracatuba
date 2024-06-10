@@ -50,4 +50,23 @@ public class EditoraDAO {
 
         return listaEditora;
     }
+    public static int contarEditora(Editora editora){
+        String sql = "SELECT COUNT(*) AS total_livros " + 
+                "FROM livros " + "WHERE editora_id = " + editora.getEditora_id();
+        int qtd = 0;
+         try (Connection connection = new Conexao().getConexao();
+             Statement statement = connection.createStatement(); 
+             ResultSet resultSet = statement.executeQuery(sql)) {
+
+            while (resultSet.next()) {
+                qtd = resultSet.getInt("total_livros");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        
+        return qtd;
+    }
 }

@@ -92,8 +92,8 @@ public class CadastroAutor extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        CadastroLivros cdLivros = new CadastroLivros();
-        cdLivros.setVisible(true);
+        FrmMenu menu = new FrmMenu();
+        menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
